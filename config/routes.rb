@@ -9,6 +9,10 @@ Rails.application.routes.draw do
    unauthenticated do
      root 'devise/registrations#new', as: :unauthenticated_root
    end
+
+   get 'links/new' => 'links#new'
+
+   post 'links' => 'links#create'
  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
