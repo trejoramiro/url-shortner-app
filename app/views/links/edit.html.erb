@@ -1,0 +1,5 @@
+<%= form_tag("/links", methods: "patch") do %>
+<%= label_tag(:q, "Label") %>
+<%= text_field_tag(:q, @link.target_url) %>
+<%= submit_tag("Update") %>
+<% end %>

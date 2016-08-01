@@ -34,4 +34,9 @@ class LinksController < ApplicationController
     render 'show.html.erb'
   end
 
+  def edit
+    @link = Link.find_by(id: params[:id])
+    render 'edit.html.erb'
+  end
+
 end
