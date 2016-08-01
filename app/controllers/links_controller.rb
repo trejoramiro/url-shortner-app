@@ -53,6 +53,11 @@ class LinksController < ApplicationController
 
   def delete
     @link = Link.find_by(id: params[:id])
+    @visits = @link.visits
+    # delete the visits that carry that link id!
+    @visits.each do |visit|
+      visit.destroy
+    end
     @link.destroy
     redirect_to '/'
   end
