@@ -22,7 +22,7 @@ class Link < ActiveRecord::Base
         char = (0...1).map { ('A'..'Z').to_a[rand(26)] }.join
         str = str + char
       elsif type[index] == "number"
-        char = rand(0..2).to_s
+        char = rand(0..9).to_s
         str = str + char
       end
     end
