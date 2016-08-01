@@ -29,4 +29,7 @@ class Link < ActiveRecord::Base
     self.slug = str
   end
 
+  def visit_count
+    visits.count
+  end
 end

@@ -29,4 +29,9 @@ class LinksController < ApplicationController
     redirect_to "https://#{@link.target_url}"
   end
 
+  def show
+    @link = Link.find_by(id: params[:id])
+    render 'show.html.erb'
+  end
+
 end
