@@ -1,17 +1,24 @@
 
 <h1>Your links</h1>
 
+<%= form_tag("/links/new", method: "get") do %>
+<%= submit_tag("New") %>
+<% end %>
+
 <table>
   <tr>
     <th>Slug</th>
     <th>Target URL</th>
     <th>Created At</th>
+    <th>Edit</th>
   </tr>
   <% @links.each do |link| %>
     <tr>
       <td><%= link.slug %></td>
       <td><%= link.target_url %></td>
       <td><%= link.created_at %></td>
+      <td><a href="/links/<%= link.id %>/edit">Edit</a></td>
+      <td><a href="/visits/<%= link.id %>/">Visits</a></td>
     </tr>
   <% end %>
 <table>
