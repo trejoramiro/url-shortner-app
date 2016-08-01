@@ -12,7 +12,6 @@ class LinksController < ApplicationController
 
   def create
     url_head = "http://localhost:3000/"
-    puts "Warriror!!!!"
     @link = Link.new(
       user_id: current_user.id,
       target_url: params[:url]
