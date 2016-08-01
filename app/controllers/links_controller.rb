@@ -12,6 +12,7 @@ class LinksController < ApplicationController
 
   def create
     url_head = "http://localhost:3000/"
+    puts "Warriror!!!!"
     @link = Link.new(
       user_id: current_user.id,
       target_url: params[:url]
@@ -37,6 +38,15 @@ class LinksController < ApplicationController
   def edit
     @link = Link.find_by(id: params[:id])
     render 'edit.html.erb'
+  end
+
+  def update
+    @link = Link.find_by(id: params[:id])
+    @link.assign_attributes({
+      target_url: params[:q]
+      })
+    @link.save
+    redirect_to '/'
   end
 
 end
