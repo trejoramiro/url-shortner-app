@@ -52,4 +52,10 @@ class LinksController < ApplicationController
     redirect_to '/'
   end
 
+  def delete
+    @link = Link.find_by(id: params[:id])
+    @link.destroy
+    redirect_to '/'
+  end
+
 end

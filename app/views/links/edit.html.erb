@@ -3,3 +3,7 @@
 <%= text_field_tag(:q, @link.target_url) %>
 <%= submit_tag("Update") %>
 <% end %>
+
+<%= form_tag("/links/#{@link.id}", method: "delete") do %>
+<%= submit_tag("Delete") %>
+<% end %>
