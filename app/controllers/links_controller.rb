@@ -22,4 +22,11 @@ class LinksController < ApplicationController
     redirect_to '/'
   end
 
+  def visit
+    @link = Link.find_by(slug: params[:slug])
+    @visit = Visit.new(link_id: @link.id, ip_address: request.remote_ip)
+    @visit.save
+    redirect_to "https://#{@link.target_url}"
+  end
+
 end
