@@ -12,14 +12,14 @@ class LinksController < ApplicationController
 
   def create
     url_head = "http://localhost:3000/"
-    link_body = params[:url]
     @link = Link.new(
       user_id: current_user.id,
-      target_url: params[:link],
-      slug: "new"
+      target_url: params[:url]
       )
+    @link.standardize_target_url!
+    @link.generate_slug!
     @link.save
-    redirect_to '/links/new'
+    redirect_to '/'
   end
 
 end

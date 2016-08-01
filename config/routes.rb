@@ -13,6 +13,8 @@ Rails.application.routes.draw do
    get 'links/new' => 'links#new'
 
    post 'links' => 'links#create'
+
+   get '/:slug' => 'links#send'
  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
