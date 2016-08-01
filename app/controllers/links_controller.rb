@@ -24,10 +24,13 @@ class LinksController < ApplicationController
   end
 
   def visit
-    @link = Link.find_by(slug: params[:slug])
-    @visit = Visit.new(link_id: @link.id, ip_address: request.remote_ip)
-    @visit.save
-    redirect_to "https://#{@link.target_url}"
+    if @link = Link.find_by(slug: params[:slug])
+      @visit = Visit.new(link_id: @link.id, ip_address: request.remote_ip)
+      @visit.save
+      redirect_to "https://#{@link.target_url}"
+    else
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   def show
